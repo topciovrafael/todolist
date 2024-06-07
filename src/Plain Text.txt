@@ -1,0 +1,122 @@
+ butonstergere.addEventListener("click", function(){
+        butonstergere.parentElement.remove();
+    });
+
+
+
+
+
+import inchisPopUp from './inchisPopUp';
+
+var storedTasks = JSON.parse(localStorage.getItem("tasks"));
+var listaTasks = storedTasks;
+
+
+    storedTasks.forEach(task => {
+        displayTask(task);
+    });
+
+
+
+
+function adaugare() {
+    class task {
+        constructor(title, description, date, priority) {
+            this.title = title;
+            this.description = description;
+            this.date = date;
+            this.priority = priority;
+        }
+    }
+
+    const addButton = document.getElementById("pebuneadd");
+
+    let titlu = document.getElementById("inputitle").value;
+    let description = document.getElementById("inputdesc").value;
+    let date = document.getElementById("inputdate").value;
+    let priority = document.getElementById("inputpriority").value;
+    let tasknou;
+    if (validare()) {
+        tasknou = new task(titlu, description, date, priority);
+        listaTasks.push(tasknou);
+        
+        console.log(listaTasks);
+        inchisPopUp();
+    } else {
+        console.log("All fields must be filled out.");
+    }
+    displayTask(tasknou);
+
+    localStorage.setItem("tasks", JSON.stringify(listaTasks));
+}
+
+function displayTask(task){
+    const locAfisare=document.getElementById("aldoileachenar");
+    const locSloturi=document.getElementById("loc-sloturi");
+    const slot=document.createElement("div");
+    slot.classList.add("slot");
+    const slotTitlu=document.createElement("div");
+    const slotDesc=document.createElement("div");
+    const slotDate=document.createElement("div");
+    const slotPriority=document.createElement("div");
+    const butonstergere=document.createElement("div");
+    butonstergere.innerHTML ='&times;'
+    butonstergere.classList.add("stergere");
+    slotTitlu.innerText="Title: "+task.title;
+    slotDesc.innerText="Description: "+task.description;
+    slotDate.innerText="Date: "+task.date;
+    if(task.priority==1){
+    slotPriority.innerText="Priority: Low";}
+    if(task.priority==2){
+        slotPriority.innerText="Priority: Medium";}
+    if(task.priority==3){
+    slotPriority.innerText="Priority: High";}
+    
+    slotTitlu.classList.add("element-slot");
+    slotDesc.classList.add("element-slot");
+    slotDate.classList.add("element-slot");
+    slotPriority.classList.add("element-slot");
+    slot.appendChild(slotTitlu);
+    slot.appendChild(slotDesc);
+    slot.appendChild(slotDate);
+    slot.appendChild(slotPriority);
+    slot.appendChild(butonstergere);
+    locSloturi.appendChild(slot);
+    locAfisare.appendChild(locSloturi);
+}
+
+
+
+function validare() {
+    let titlu = document.getElementById("inputitle").value;
+    let description = document.getElementById("inputdesc").value;
+    let date = document.getElementById("inputdate").value;
+    let priority = document.getElementById("inputpriority").value;
+
+    if (titlu === '' || description === '' || date === '' || priority === '') {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function checkInputs() {
+    const addButton = document.getElementById("pebuneadd");
+    if (validare()) {
+        addButton.disabled = false;
+    } else {
+        addButton.disabled = true;
+    }
+}
+
+// Add event listeners to input fields to monitor changes
+document.getElementById("inputitle").addEventListener("input", checkInputs);
+document.getElementById("inputdesc").addEventListener("input", checkInputs);
+document.getElementById("inputdate").addEventListener("input", checkInputs);
+document.getElementById("inputpriority").addEventListener("input", checkInputs);
+
+// Initialize the "Add" button as disabled
+document.getElementById("pebuneadd").disabled = true;
+
+
+export default adaugare;

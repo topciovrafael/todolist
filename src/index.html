@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/fba33ceeed.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link id="hai" rel="icon" 
+      type="image/png" 
+      href="iconita.png">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Gamja+Flower&family=Indie+Flower&family=Kristi&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Gamja+Flower&family=Indie+Flower&family=Kristi&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="titlu">ToDoList</div>
+    <div id="chenar">
+        <div id="aldoileachenar">
+            <div id="loc-sloturi"></div>
+            <div id="footer-chenar">
+                <button id="sort-priority">Sort by Priority</button>
+                <div id="addbtn">+</div>
+            </div>
+        </div>
+    </div>
+    <div id="ceata"></div>
+    <div id="popup">
+        <div id="popupheader">
+            <div id="popupprompttext">Add an activity</div>
+            <div id="btnics">&times;</div>
+        </div>
+        <div id="popupcontent">
+            <form action="">
+                <label for="inputitle">Title</label>
+                <input type="text" id="inputitle" required>
+                <label for="inputitle">Description</label>
+                <input type="text" id="inputdesc" required>
+                <label for="inputitle">Date</label>
+                <input type="date" id="inputdate" required>
+                <label for="prioritate">Priority</label>
+                <input type="range" min="1" max="3" id="inputpriority" required>
+                <button id="pebuneadd">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="areyousure-popup">
+        <div id="textareyousure">Are you sure you want to delete this task?</div>
+        <div id="dasaunu"><button id="nu">No</button><button id="da">Yes</button></div>
+    </div>
+    <div id="edit-task-popup">
+        <div class="slot-edit">
+            <div class="area-before">Title:</div>
+            <textarea name="" id="area-title" cols="30" rows="3"></textarea>
+        </div>
+        <div class="slot-edit">
+            <div class="area-before">Description:</div>
+            <textarea name="" id="area-description" cols="30" rows="3"></textarea>
+        </div>
+        <div class="slot-edit" id="area-before-date">
+            <div class="area-before" >Date:</div>
+            <input type="date" name="" id="area-date">
+        </div>
+        <div class="slot-edit" id="area-before-priority">
+            <div class="area-before">Priority:</div>
+            <select name="" id="pselect">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+            </select>
+            
+        </div>
+        <div id="butoane-edit">
+            <button id="inchidere-task">exit</button>
+            <button id="schimbare-task">Save</button>
+        </div>
+    </div>
+</body>
+</html>
