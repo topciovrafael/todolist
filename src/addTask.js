@@ -4,17 +4,6 @@ import sureInchis from './sureInchis';
 import editInchis from './inchisEdit';
 import editPopup from './editPopup';
 
-var storedTasks=[];
-var listaTasks=[];
-
-storedTasks = JSON.parse(localStorage.getItem("tasks"));
-listaTasks = storedTasks;
-
-
-storedTasks.forEach(task => {
-    displayTask(task);
-});
-
 class task {
     constructor(title, description, date, priority) {
         this.title = title;
@@ -23,6 +12,25 @@ class task {
         this.priority = priority;
     }
 }
+
+
+var storedTasks=[];
+var listaTasks=[];
+
+storedTasks = JSON.parse(localStorage.getItem("tasks"));
+listaTasks = storedTasks;
+
+let task1= new task("Example","short thing","06/04/2024", "2");
+let task2= new task("Example2","short thing","06/04/2024", "2");
+
+storedTasks.push(task1);
+storedTasks.push(task2);
+
+storedTasks.forEach(task => {
+    displayTask(task);
+});
+
+
 
 
 function adaugare() {
